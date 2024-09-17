@@ -4,8 +4,10 @@
 }
 
 body{
-    background-color: #4e4d5c;
+    background-color: #805e73;
     text-align: center;
+    color: black;
+    font-size: 3rem;
 }
 
 
@@ -38,8 +40,31 @@ body{
 }
 
 #reset-btn{
-    padding: 1.3rem;
-    font-size: 1.8rem;
-    color: #805e73;
+    padding: 1rem;
+    font-size: 1.7rem;
+    background-color: black;
+    color: white;
     border-radius: 1rem;
+}
+
+#new-btn{
+    padding: 1rem;
+    font-size: 1.7rem;
+    background-color: black;
+    color: white;
+    border-radius: 1rem;
+}
+
+#msg{
+    font-size: 5rem;
+    color: #87bcde;
+}
+
+.msg-container{
+    height: 20vmin;
+}
+
+
+.hide{
+    display: none;
 }
