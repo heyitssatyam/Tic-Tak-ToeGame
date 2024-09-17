@@ -6,9 +6,10 @@ let msg= document.querySelector("#msg");
 
 
 let turnO = true;
-
+let count=0;
 const resetGame = () =>{
     turnO = true;
+    count=0;
     enableBtns();
     msgContainer.classList.add('hide');
 }
@@ -41,17 +42,28 @@ boxes.forEach((box) =>{
     const play = ()=>{
         if(turnO === true){
             box.innerText="O";
+            
             turnO=false;
         }else{
             box.innerText="X";
+            ;
             turnO=true;
         }
         box.disabled = true;
-        checkWinner();
+        count++;
+        let isWinner = checkWinner();
+        if(count ===9 && !isWinner){
+            gameDraw();
+        }
     }
     box.addEventListener("click", play)
-   
 })
+
+const gameDraw= () =>{
+    disableBtns();
+    msg.innerText=`Draw`;
+    msgContainer.classList.remove("hide");
+}
 const disableBtns = () => {
     for(let box of boxes){
         box.disabled = true;
@@ -81,9 +93,9 @@ const checkWinner = () =>{
         if(pos1Val !="" && pos2Val !="" && pos3Val != ""){
         if (pos1Val === pos2Val && pos2Val=== pos3Val){
             console.log(`${pos1Val} is the winner`);
-            showWinner(pos1Val);
             
+            showWinner(pos1Val);
+            }
         }
     }
-} 
 } 
